@@ -1,0 +1,16 @@
+/* サイト全体で使うテーマカラー */
+:root {
+  --main-color: #ea903a;
+  --main-color-dark: #8f6538;
+  --main-color-light: #f7d4b0;
+  --main-color-superlight: #fcefe0;
+
+  /* Discord ブランドカラー（Blurple） */
+  --discord-color: #5865f2;
+  --discord-color-dark: #4752c4;
+}
+
+body {
+  margin: 0;
+  background-color: var(--main-color-superlight);
+}
