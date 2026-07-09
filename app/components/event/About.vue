@@ -111,8 +111,10 @@
     width: 100px;
   }
   .about__list dd {
+    /* nowrap にすると長い値（Discord行・主催名）が画面外へはみ出すため折り返す。
+       overflow-wrap は英単語がカラム幅を超えたときだけ折る保険（通常は単語ごと折り返し） */
     width: calc(100% - 100px);
-    white-space: nowrap;
+    overflow-wrap: break-word;
   }
 }
 
@@ -132,7 +134,8 @@
   color: var(--main-color-dark);
   font-weight: bold;
   text-decoration: underline;
-  word-break: break-all;
+  /* break-all だと「Discord」等の英単語が途中で割れるため、はみ出す時だけ折る */
+  overflow-wrap: anywhere;
 }
 .about__link:hover {
   opacity: 0.8;

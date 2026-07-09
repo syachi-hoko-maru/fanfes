@@ -286,9 +286,11 @@ useSeoMeta({
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-width: 240px;
+  /* 狭い画面ではコンテナ幅まで縮む（240px を下限にしない） */
+  width: min(240px, 100%);
   height: 50px;
   padding: 0 24px;
+  box-sizing: border-box;
   color: #fff;
   font-size: 16px;
   font-weight: bold;

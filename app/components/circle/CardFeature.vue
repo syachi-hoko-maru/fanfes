@@ -39,6 +39,8 @@ defineProps<{
 .logo {
   height: 63px;
   width: auto;
+  /* カード幅より広くなる狭い画面では、はみ出さずに縮める */
+  max-width: 100%;
   aspect-ratio: 68 / 11;
   object-fit: contain;
 }
