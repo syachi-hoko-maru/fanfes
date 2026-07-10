@@ -1,9 +1,14 @@
 <script lang="ts" setup>
 import { findCircle } from "~/data/circles";
+import { circleDetails } from "~/data/circleDetails";
 
 const route = useRoute();
 const id = computed(() => String(route.params.id));
 const circle = computed(() => findCircle(id.value));
+const detail = computed(() => circleDetails[id.value]);
+
+// 頒布情報の公開ゲート（2026-07-11 00:00 JST〜）。共通ロジックは useReleased に集約
+const released = useReleased();
 
 // 前後のサークル（1〜24 でループ。1 の前は 24、24 の次は 1）
 const TOTAL = 24;
@@ -115,7 +120,8 @@ useSeoMeta({
         <CircleTagList :tags="circle.tags" />
       </div>
 
-      <div class="detail__notice">
+      <!-- 公開前（〜7/11 0:00 JST）は従来の予告表示のまま -->
+      <div v-if="!released" class="detail__notice">
         <p class="detail__notice-text">
           このサークル詳細ページは<wbr />
           <strong>2026年7月11日（土）0時頃</strong>に<wbr />公開予定です。
@@ -124,6 +130,71 @@ useSeoMeta({
           頒布先などの公開まで今しばらくお待ちください。
         </p>
       </div>
+
+      <!-- 公開後（7/11 0:00 JST〜）は頒布情報・SNSを表示 -->
+      <template v-else-if="detail">
+        <section v-if="detail.shops.length" class="shops">
+          <h2 class="shops__title">頒布情報</h2>
+          <ul class="shops__list">
+            <li v-for="(shop, i) in detail.shops" :key="i" class="shop">
+              <p class="shop__name">
+                <a
+                  v-if="shop.url"
+                  class="shop__link"
+                  :href="shop.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ shop.name }}<UiIconExternal />
+                </a>
+                <span v-else>{{ shop.name }}</span>
+              </p>
+              <p v-if="shop.description" class="shop__desc">
+                {{ shop.description }}
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section v-if="detail.xAccounts.length" class="sns">
+          <h2 class="sns__title">SNS</h2>
+          <ul class="sns__list">
+            <li v-for="handle in detail.xAccounts" :key="handle">
+              <a
+                class="sns__link"
+                :href="`https://x.com/${handle}`"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @{{ handle }}<UiIconExternal />
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <div
+          v-if="!detail.shops.length && !detail.xAccounts.length"
+          class="detail__notice"
+        >
+          <p class="detail__notice-sub">
+            このサークルの頒布情報は準備中です。<wbr />
+            更新時は
+            <a href="/2026/discord" target="_blank" rel="noopener noreferrer">
+              ソドワファンフェスのDiscordサーバー
+            </a>
+            や
+            <a
+              href="https://x.com/syachi_hoko_trp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              しゃちほこ丸のX（Twitter）
+            </a>
+            でお知らせしますので、<wbr />
+            ぜひ参加・フォローしてお待ちください。
+          </p>
+        </div>
+      </template>
 
       <section v-if="circle" class="tweet">
         <h2 class="tweet__title">このサークルについてツイートする</h2>
@@ -241,6 +312,79 @@ useSeoMeta({
   color: #666;
   font-size: 14px;
   line-height: 1.8;
+}
+
+/* 頒布情報・SNS（公開後に表示） */
+.shops,
+.sns {
+  margin: 0 auto 24px;
+  padding: 24px;
+  text-align: left;
+  background-color: var(--main-color-light);
+  border-top: 3px solid var(--main-color-dark);
+}
+.shops__title,
+.sns__title {
+  display: inline-block;
+  margin: 0 0 16px;
+  padding-bottom: 6px;
+  color: var(--main-color-dark);
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--main-color);
+}
+.shops__list,
+.sns__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.shop {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--main-color-dark);
+}
+.shop:first-child {
+  padding-top: 0;
+}
+.shop:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.shop__name {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.6;
+}
+.shop__link,
+.sns__link {
+  color: var(--main-color-dark);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+.shop__link:hover,
+.sns__link:hover {
+  opacity: 0.8;
+}
+.shop__desc {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.sns__list li {
+  margin-bottom: 6px;
+}
+.sns__list li:last-child {
+  margin-bottom: 0;
+}
+.sns__link {
+  font-weight: bold;
+}
+.shop__link :deep(svg),
+.sns__link :deep(svg) {
+  vertical-align: -0.15em;
+  margin-left: 2px;
 }
 
 /* このサークルについてツイートする */
