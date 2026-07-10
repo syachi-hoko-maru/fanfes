@@ -244,6 +244,7 @@ useSeoMeta({
       </NuxtLink>
     </div>
   </main>
+  <EventAbout />
 </template>
 
 <style scoped>
