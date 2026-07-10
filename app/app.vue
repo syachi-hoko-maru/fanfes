@@ -3,5 +3,6 @@
     <NuxtRouteAnnouncer />
     <LayoutSiteHeader />
     <NuxtPage />
+    <EffectFloatingHearts />
   </div>
 </template>
