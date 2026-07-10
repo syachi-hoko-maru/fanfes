@@ -21,6 +21,33 @@ const nextId = computed(() => {
   return String(n >= TOTAL ? 1 : n + 1);
 });
 
+// PC（キーボード）で左右矢印キーを押すと前後のサークルへ移動する。
+// キーイベントは物理キーボードからのみ発火するため、実質PC/ラップトップ向け。
+const router = useRouter();
+const onArrowKey = (e: KeyboardEvent) => {
+  // 修飾キー併用（ブラウザの戻る/進む等）は横取りしない
+  if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+  // 入力欄・IME変換中などフォーカスが文字入力にある時は無視する
+  const el = e.target as HTMLElement | null;
+  if (
+    e.isComposing ||
+    (el &&
+      (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)))
+  ) {
+    return;
+  }
+  if (!circle.value) return;
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    router.push(`/2026/circle/${prevId.value}`);
+  } else if (e.key === "ArrowRight") {
+    e.preventDefault();
+    router.push(`/2026/circle/${nextId.value}`);
+  }
+};
+onMounted(() => window.addEventListener("keydown", onArrowKey));
+onBeforeUnmount(() => window.removeEventListener("keydown", onArrowKey));
+
 // 本番ドメイン。OGP画像・URLは絶対パスで指定する必要がある
 const SITE_URL = "https://fanfes.syachi.work";
 
@@ -166,7 +193,7 @@ useSeoMeta({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                @{{ handle }}<UiIconExternal />
+                X（Twitter）: @{{ handle }}<UiIconExternal />
               </a>
             </li>
           </ul>
