@@ -286,8 +286,14 @@ export const circleDetails: Record<string, CircleDetail> = {
     xAccounts: ["decoy_touryou"],
   },
   "19": {
-    shops: [],
-    xAccounts: [],
+    shops: [
+      {
+        name: "ソード・ワールドシナリオ集 BANG-G（note）",
+        url: "https://note.com/banji9990/n/nd3b958e77c1f",
+        description: "幅広いレベルに対応した豊富なシナリオを頒布しています",
+      },
+    ],
+    xAccounts: ["Bang_g_no1"],
   },
   "20": {
     shops: [
