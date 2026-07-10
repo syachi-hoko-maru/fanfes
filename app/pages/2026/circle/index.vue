@@ -37,5 +37,4 @@ const circleList = computed<Circle[]>(() => [
     :circles="circleList"
     booth-link="https://syachihokomaru.booth.pm/items/8328688"
   />
-  <EventAbout />
 </template>

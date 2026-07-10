@@ -43,8 +43,6 @@ useHead({
       </nav>
     </div>
   </main>
-
-  <EventAbout />
 </template>
 
 <style scoped>
