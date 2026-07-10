@@ -121,13 +121,16 @@ onBeforeUnmount(() => {
   text-align: center;
 }
 .invite__button {
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  min-width: 260px;
+  /* サークル一覧・Booth頒布所ボタンと同じ幅(300px)に揃える */
+  width: 100%;
+  max-width: 300px;
   height: 52px;
-  padding: 0 24px;
+  padding: 0 16px;
   color: #fff;
   font-size: 17px;
   font-weight: bold;

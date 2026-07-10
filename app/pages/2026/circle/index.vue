@@ -33,6 +33,9 @@ const circleList = computed<Circle[]>(() => [
 </script>
 
 <template>
-  <CircleCardList :circles="circleList" :booth-link="''" />
+  <CircleCardList
+    :circles="circleList"
+    booth-link="https://syachihokomaru.booth.pm/items/8328688"
+  />
   <EventAbout />
 </template>

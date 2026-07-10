@@ -28,6 +28,19 @@ useHead({
       </section>
 
       <DiscordInviteButton class="discord__invite" />
+
+      <nav class="discord__nav" aria-label="関連ページへのリンク">
+        <NuxtLink class="navButton" to="/2026/circle">サークル一覧へ</NuxtLink>
+        <a
+          class="navButton"
+          href="https://syachihokomaru.booth.pm/items/8328688"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          パンフレット頒布所（Booth）へ
+          <UiIconExternal />
+        </a>
+      </nav>
     </div>
   </main>
 
@@ -85,5 +98,39 @@ useHead({
 
 .discord__invite {
   margin-top: 40px;
+}
+
+/*
+ * サークル一覧・Booth頒布所への導線。
+ * flex-wrap により、幅に余裕がある時（合計約630px以上）は横並び、
+ * 狭い時は自動で縦積みになる。各ボタンは border-box + 同一幅で揃える。
+ */
+.discord__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 48px;
+}
+.navButton {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* 伸びず(grow0)・詰まる(shrink1)・基準300px。3ボタンすべて同じ幅にする */
+  flex: 0 1 300px;
+  max-width: 300px;
+  height: 52px;
+  padding: 0 16px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: var(--main-color);
+  box-shadow: 4px 4px 0 0 var(--main-color-dark);
+}
+.navButton:hover {
+  box-shadow: 2px 2px 0 0 var(--main-color-dark);
 }
 </style>
