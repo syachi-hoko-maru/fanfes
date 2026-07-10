@@ -27,6 +27,29 @@
             <UiIconExternal />
           </a>
         </dd>
+        <dt>協賛</dt>
+        <dd>
+          <!-- サークル名（左）と協賛者名（右）を2カラムで揃える。複数名は右で縦積み -->
+          <div class="sponsors">
+            <span class="sponsors__circle">巡涯学派</span>
+            <span class="sponsors__people">トーラ<br />屋台</span>
+            <span class="sponsors__circle">雪花露店</span>
+            <span class="sponsors__people">桜楼</span>
+            <span class="sponsors__circle">BANG-G</span>
+            <span class="sponsors__people">BANG-G</span>
+            <span class="sponsors__circle">ナナイロダイス</span>
+            <span class="sponsors__people">Ana</span>
+            <span class="sponsors__circle">幻想書斎</span>
+            <span class="sponsors__people">DKP</span>
+            <span class="sponsors__circle">Thyme</span>
+            <span class="sponsors__people">ironashi<br />rosai</span>
+            <span class="sponsors__circle">studio SISTER</span>
+            <span class="sponsors__people">Jorge</span>
+            <span class="sponsors__circle">流浪の民</span>
+            <span class="sponsors__people">銀色のかぼちゃ</span>
+          </div>
+          <p class="sponsors__note">（敬称略）</p>
+        </dd>
       </dl>
 
       <div class="about__notes">
@@ -50,6 +73,11 @@
             <UiIconExternal />
           </a>
           を確認のうえ、制作・頒布しています。
+        </p>
+        <p class="about__note">
+          本イベントで頒布される二次創作物は、<wbr />
+          各サークルが<wbr />頒布しております。<br />
+          内容や制作過程について、本イベント主催のしゃちほこ丸/しゃちほこの尾びれ亭は一切関与しておらず、校閲等もしておりません。
         </p>
       </div>
     </div>
@@ -116,6 +144,28 @@
     width: calc(100% - 100px);
     overflow-wrap: break-word;
   }
+}
+
+/* 協賛一覧: サークル名（左）と協賛者名（右）を2カラムで揃える */
+.sponsors {
+  display: grid;
+  /* 左列は最長のサークル名にそろえ、右列（協賛者）の開始位置を一定にする */
+  grid-template-columns: max-content 1fr;
+  align-items: start;
+  column-gap: 24px;
+  row-gap: 8px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+.sponsors__people {
+  overflow-wrap: anywhere;
+}
+/* 「敬称略」は控えめな注記として右下に表示 */
+.sponsors__note {
+  margin: 10px 0 0;
+  color: #666;
+  font-size: 13px;
+  text-align: right;
 }
 
 .about__notes {
