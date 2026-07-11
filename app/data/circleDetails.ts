@@ -203,7 +203,7 @@ export const circleDetails: Record<string, CircleDetail> = {
       },
       {
         name: "シナリオ『砂漠に眠りし秘宝』",
-        url: "",
+        url: "https://booth.pm/ja/items/6288785",
         description:
           "砂漠を舞台にしたシナリオ集です。 2～5Lv帯のキャンペーンが1つ、単発で3つのシナリオが収録されています。",
       },
