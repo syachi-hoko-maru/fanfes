@@ -146,8 +146,14 @@ export const circleDetails: Record<string, CircleDetail> = {
     xAccounts: ["Jorge_stSISTER"],
   },
   "8": {
-    shops: [],
-    xAccounts: [],
+    shops: [
+      {
+        name: "黒猫亭（booth）",
+        url: "https://kuroneko-san.booth.pm/",
+        description: "魔物の立ち絵を頒布しています",
+      },
+    ],
+    xAccounts: ["vlomhQLt0r9Vxwz"],
   },
   "9": {
     shops: [
