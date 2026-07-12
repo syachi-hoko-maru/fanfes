@@ -14,7 +14,7 @@
  *      btoa('https://discord.gg/あなたの招待コード')
  *    を実行し、得られた文字列を下の ENCODED_INVITE に貼り付ける。
  */
-const ENCODED_INVITE = "aHR0cHM6Ly9kaXNjb3JkLmdnL2NxWWtNcVFHSw==";
+const ENCODED_INVITE = "aHR0cHM6Ly9kaXNjb3JkLmdnL25YRWNLdXRIRA==";
 
 const showModal = ref(false);
 const confirmed = ref(false);
