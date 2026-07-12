@@ -390,6 +390,12 @@ export const circleDetails: Record<string, CircleDetail> = {
   "24": {
     shops: [
       {
+        name: "新作『泡沫世界 星と砂のノクターン』（アーリー版）",
+        url: "https://syachihokomaru.booth.pm/items/8607249",
+        description:
+          "7月12日公開開始。アーリー版を無料公開中！ 古代オリエント風の泡沫世界で、4つの独自技能も使って冒険しましょう！",
+      },
+      {
         name: "しゃちほこの尾びれ亭の同人誌（Booth）",
         url: "https://syachihokomaru.booth.pm/item_lists/nJgTVYPX",
         description:
@@ -401,12 +407,12 @@ export const circleDetails: Record<string, CircleDetail> = {
         description:
           "初心者さんと初心者GMさんにおすすめのシナリオや、GMレスで遊べるシナリオなどを頒布しています",
       },
-      {
-        name: "初心者さん向けルールブック副読本『いざ、ファンタジーな世界へ』",
-        url: "https://syachihokomaru.booth.pm/items/7536991",
-        description:
-          "SW2.5の未経験者さん、初心者さんが気軽にルールブックを読みつつ遊んで慣れられる副読本です。GMレスシナリオ収録。",
-      },
+      // {
+      //   name: "初心者さん向けルールブック副読本『いざ、ファンタジーな世界へ』",
+      //   url: "https://syachihokomaru.booth.pm/items/7536991",
+      //   description:
+      //     "SW2.5の未経験者さん、初心者さんが気軽にルールブックを読みつつ遊んで慣れられる副読本です。GMレスシナリオ収録。",
+      // },
       {
         name: "しゃちほこの尾びれ亭のアパレル（Booth）",
         url: "https://syachihokomaru.booth.pm/item_lists/rBkTlPKW",
