@@ -50,7 +50,7 @@ export const sponsorCircles: Circle[] = [
     id: 12,
     img: "gensou-shosai",
     name: "幻想書斎",
-    tags: ["シナリオ/キャンペーン", "オリジナルデータ"],
+    tags: ["シナリオ/キャンペーン", "リプレイ/小説", "オリジナルデータ"],
   }),
   circle({
     id: 14,
