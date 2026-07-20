@@ -55,8 +55,8 @@ const GRAVITY = 0.045;
 const FRICTION = 0.985;
 const PARTICLES_MIN = 40;
 const PARTICLES_MAX = 70;
-const LAUNCH_MIN = 700; // 打ち上げ間隔(ms)
-const LAUNCH_MAX = 1600;
+const LAUNCH_MIN = 500; // 打ち上げ間隔(ms)
+const LAUNCH_MAX = 1000;
 const MAX_PARTICLES = 600; // 同時パーティクル上限（超えたら新規打ち上げを間引く）
 
 const rand = (min: number, max: number) => min + Math.random() * (max - min);
@@ -100,7 +100,7 @@ onMounted(() => {
     rockets.push({
       x: rand(width * 0.12, width * 0.88),
       y: height + 10,
-      vy: -(rand(9, 12)),
+      vy: -rand(9, 12),
       targetY,
       color: pick(FIREWORK_COLORS),
     });
