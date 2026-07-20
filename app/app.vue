@@ -4,6 +4,7 @@
     <LayoutSiteHeader />
     <NuxtPage />
     <LayoutSiteFooter />
+    <EffectFireworks />
     <EffectFloatingHearts />
   </div>
 </template>
