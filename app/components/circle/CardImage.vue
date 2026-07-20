@@ -29,6 +29,6 @@ defineProps<{
   box-shadow: 3px 3px 0 0 var(--main-color-dark);
 }
 .circleCut.pam {
-  box-shadow: 3px 3px 0 0 #f0f0f0;
+  box-shadow: 3px 3px 0 0 var(--main-color-superlight);
 }
 </style>

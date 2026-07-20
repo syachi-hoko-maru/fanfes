@@ -29,7 +29,7 @@ const sizeClass = computed(() => {
   width: 100%;
   height: 39px;
   overflow: hidden;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 20px;
   font-weight: bold;
   background-color: var(--main-color);

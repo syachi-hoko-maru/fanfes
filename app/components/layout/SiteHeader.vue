@@ -4,11 +4,13 @@
 
 <template>
   <header class="siteHeader">
-    <img
-      class="siteHeader__logo"
-      src="/webp/other/fanfes/logo-white.webp"
-      alt="ソード・ワールド2.5 オンラインファンイベント ソドワファンフェス"
-    />
+    <a href="/" aria-label="トップページへ">
+      <img
+        class="siteHeader__logo"
+        src="/webp/other/fanfes/logo-white.webp"
+        alt="ソード・ワールド2.5 オンラインファンイベント ソドワファンフェス"
+      />
+    </a>
   </header>
 </template>
 

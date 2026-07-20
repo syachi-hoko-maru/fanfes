@@ -34,7 +34,7 @@ defineProps<{
 }
 .tag__text {
   width: calc(100% - 25px);
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 12px;
   line-height: 15px;
   font-weight: bold;

@@ -4,13 +4,34 @@
   --main-color-dark: #8f6538;
   --main-color-light: #f7d4b0;
   --main-color-superlight: #fcefe0;
-
+  --font-main-color: #fff;
+  --font-main-color-light: #333;
+  --font-main-color-superlight: #666;
+  /* テーマに依らず常に白（CTAボタン等、夜モードでも白のままにしたい箇所用） */
+  --color-white: #fff;
   /* Discord ブランドカラー（Blurple） */
   --discord-color: #5865f2;
   --discord-color-dark: #4752c4;
+  --font-discord-color: #fff;
 }
 
 body {
   margin: 0;
+  /* 明示指定のない要素の既定文字色。背景に連動させ、夜モードでも暗背景に黒文字にならないようにする */
+  color: var(--font-main-color-light);
   background-color: var(--main-color-superlight);
+  /* 夜モードの開始/終了を跨いだときに滑らかに切り替わるように（初回描画時は変化なし＝発火しない） */
+  transition:
+    background-color 0.8s ease,
+    color 0.8s ease;
+}
+
+html.festival-dark {
+  --main-color: #5853bd;
+  --main-color-dark: #817be8;
+  --main-color-light: #2a2585;
+  --main-color-superlight: #08072b;
+  --font-main-color: #d5d4ed;
+  --font-main-color-light: #ddd;
+  --font-main-color-superlight: #ddd;
 }

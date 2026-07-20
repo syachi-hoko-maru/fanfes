@@ -151,7 +151,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
 .notes__inner {
   max-width: 760px;
   margin: 0 auto;
-  color: #333;
+  color: var(--font-main-color-light);
   font-size: 16px;
   line-height: 20px;
 }
@@ -160,7 +160,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
   display: inline-block;
   margin: 0 0 20px;
   padding: 5px 18px;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 18px;
   font-weight: bold;
   background-color: var(--main-color);
@@ -213,7 +213,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
 /* 「敬称略」は控えめな注記として右下に表示 */
 .sponsors__note {
   margin: 10px 0 0;
-  color: #666;
+  color: var(--font-main-color-superlight);
   font-size: 13px;
   text-align: right;
 }
@@ -221,7 +221,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
 /* ===== 諸注意 ===== */
 .about__note {
   margin: 0 0 14px;
-  color: #555;
+  color: var(--font-main-color-superlight);
   font-size: 14px;
   line-height: 1.9;
 }
@@ -247,7 +247,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
 /* ===== “ソドワ好き”募集 CTA ===== */
 .cta {
   padding: 44px 24px 56px;
-  color: #fff;
+  color: var(--font-main-color);
   text-align: center;
   background-color: var(--main-color);
   border-top: 3px solid var(--main-color-dark);
@@ -298,7 +298,7 @@ const FORM_URL = "https://forms.gle/wkS9Lc73ZpaKgGgs8";
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  background-color: #fff;
+  background-color: var(--color-white);
   box-shadow: 4px 4px 0 0 var(--main-color-dark);
 }
 .cta__button:hover {

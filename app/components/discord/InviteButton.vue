@@ -104,9 +104,10 @@ onBeforeUnmount(() => {
 
             <p v-if="fallbackUrl" class="modal__fallback">
               自動で開かない場合は<wbr />
-              <a :href="fallbackUrl" target="_blank" rel="noopener noreferrer"
-                >こちらのリンク<UiIconExternal /></a
-              >
+              <a :href="fallbackUrl" target="_blank" rel="noopener noreferrer">
+                こちらのリンク
+                <UiIconExternal />
+              </a>
               から参加してください。
             </p>
           </div>
@@ -131,7 +132,7 @@ onBeforeUnmount(() => {
   max-width: 300px;
   height: 52px;
   padding: 0 16px;
-  color: #fff;
+  color: var(--font-discord-color);
   font-size: 17px;
   font-weight: bold;
   text-decoration: none;
@@ -145,7 +146,7 @@ onBeforeUnmount(() => {
 }
 .invite__note {
   margin: 12px 0 0;
-  color: #666;
+  color: var(--font-main-color-superlight);
   font-size: 13px;
 }
 
@@ -168,7 +169,8 @@ onBeforeUnmount(() => {
   overflow-y: auto;
   padding: 28px 26px 30px;
   text-align: left;
-  background-color: #fff;
+  color: var(--font-main-color-superlight);
+  background-color: var(--main-color-superlight);
   box-shadow: 6px 6px 0 0 var(--discord-color-dark);
 }
 .modal__close {
@@ -177,7 +179,7 @@ onBeforeUnmount(() => {
   right: 12px;
   width: 32px;
   height: 32px;
-  color: #999;
+  color: var(--font-main-color-superlight);
   font-size: 26px;
   line-height: 1;
   background: none;
@@ -185,13 +187,13 @@ onBeforeUnmount(() => {
   cursor: pointer;
 }
 .modal__close:hover {
-  color: #333;
+  color: var(--font-main-color-light);
 }
 .modal__heading {
   display: inline-block;
   margin: 0 0 16px;
   padding: 5px 18px;
-  color: #fff;
+  color: var(--font-discord-color);
   font-size: 18px;
   font-weight: bold;
   background-color: var(--discord-color);
@@ -203,7 +205,7 @@ onBeforeUnmount(() => {
   gap: 8px;
   margin: 22px 0;
   padding: 12px 14px;
-  color: #333;
+  color: var(--font-main-color-light);
   font-size: 15px;
   font-weight: bold;
   background-color: var(--main-color-light);
@@ -223,7 +225,7 @@ onBeforeUnmount(() => {
   gap: 6px;
   width: 100%;
   height: 52px;
-  color: #fff;
+  color: var(--font-discord-color);
   font-size: 16px;
   font-weight: bold;
   background-color: var(--discord-color);
@@ -241,7 +243,7 @@ onBeforeUnmount(() => {
 }
 .modal__fallback {
   margin: 16px 0 0;
-  color: #555;
+  color: var(--font-main-color-superlight);
   font-size: 13px;
   line-height: 1.7;
 }

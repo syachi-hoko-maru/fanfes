@@ -54,7 +54,7 @@ a,
   width: calc(100% - 20px - 3px);
   height: 45px;
   background-color: var(--main-color);
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 16px;
   font-weight: bold;
   padding: 5px 10px;

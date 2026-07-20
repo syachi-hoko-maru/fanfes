@@ -12,6 +12,13 @@
  * ・日本時間 2026-07-20 17:00 〜 2026-07-21 06:00 の期間だけ表示する
  */
 
+// 表示期間（花火も夜モードも共通）は app/utils/festival.ts で一元管理する
+import {
+  FESTIVAL_START,
+  FESTIVAL_END,
+  FESTIVAL_MAX_TIMEOUT,
+} from "~/utils/festival";
+
 const canvas = ref<HTMLCanvasElement | null>(null);
 
 interface Rocket {
@@ -52,12 +59,6 @@ const LAUNCH_MIN = 700; // 打ち上げ間隔(ms)
 const LAUNCH_MAX = 1600;
 const MAX_PARTICLES = 600; // 同時パーティクル上限（超えたら新規打ち上げを間引く）
 
-// 花火を表示する期間（日本時間 JST=UTC+9 の固定時刻。閲覧者のタイムゾーンに依らず同じ実時刻で判定）
-// 2026-07-20 17:00 JST 〜 2026-07-21 06:00 JST
-const SHOW_START = Date.UTC(2026, 6, 20, 8, 0, 0); // 2026-07-20 17:00 JST
-const SHOW_END = Date.UTC(2026, 6, 20, 21, 0, 0); // 2026-07-21 06:00 JST
-const MAX_TIMEOUT = 2_147_483_647; // setTimeout の上限(ms)。これを超える遅延は張らない
-
 const rand = (min: number, max: number) => min + Math.random() * (max - min);
 const pick = <T,>(arr: readonly T[]): T =>
   arr[Math.floor(Math.random() * arr.length)]!;
@@ -72,7 +73,7 @@ onMounted(() => {
   if (!el || !ctx) return;
 
   // 期間が完全に終わっていれば何もしない（お祭り後は常にこのケース）
-  if (Date.now() >= SHOW_END) return;
+  if (Date.now() >= FESTIVAL_END) return;
 
   let width = 0;
   let height = 0;
@@ -195,7 +196,7 @@ onMounted(() => {
 
   const inWindow = () => {
     const now = Date.now();
-    return now >= SHOW_START && now < SHOW_END;
+    return now >= FESTIVAL_START && now < FESTIVAL_END;
   };
 
   function start() {
@@ -224,8 +225,8 @@ onMounted(() => {
   }
 
   function scheduleEnd() {
-    const delay = SHOW_END - Date.now();
-    if (delay > 0 && delay <= MAX_TIMEOUT) {
+    const delay = FESTIVAL_END - Date.now();
+    if (delay > 0 && delay <= FESTIVAL_MAX_TIMEOUT) {
       windowTimer = setTimeout(endShow, delay);
     }
   }
@@ -233,11 +234,11 @@ onMounted(() => {
   // 現在時刻に応じて「すぐ開始／開始時刻に自動開始／何もしない」を決める
   function planWindow() {
     const now = Date.now();
-    if (now >= SHOW_END) return; // 終了後（ここには来ない想定だが念のため）
-    if (now < SHOW_START) {
+    if (now >= FESTIVAL_END) return; // 終了後（ここには来ない想定だが念のため）
+    if (now < FESTIVAL_START) {
       // 期間前：ページを開いたまま開始時刻を跨いだら自動で始める
-      const delay = SHOW_START - now;
-      if (delay <= MAX_TIMEOUT) {
+      const delay = FESTIVAL_START - now;
+      if (delay <= FESTIVAL_MAX_TIMEOUT) {
         windowTimer = setTimeout(() => {
           start();
           scheduleEnd();

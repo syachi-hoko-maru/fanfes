@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { FESTIVAL_START, FESTIVAL_END } from './app/utils/festival'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -21,6 +23,16 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      ],
+      script: [
+        {
+          // 花火の期間中(JST 7/20 17:00〜7/21 6:00)は初回描画から夜モードにして
+          // ライト→ダークのちらつきを防ぐ。期間の値は app/utils/festival.ts と連動。
+          // 期間をまたいだ切り替えは plugins/festivalTheme.client.ts が担当する。
+          innerHTML:
+            `(function(){try{var n=Date.now();if(n>=${FESTIVAL_START}&&n<${FESTIVAL_END}){document.documentElement.classList.add('festival-dark');}}catch(e){}})();`,
+          tagPosition: 'head',
+        },
       ],
     },
   },

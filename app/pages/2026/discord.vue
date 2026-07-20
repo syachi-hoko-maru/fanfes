@@ -54,7 +54,7 @@ useHead({
 .discord__inner {
   max-width: 640px;
   margin: 0 auto;
-  color: #333;
+  color: var(--font-main-color-light);
 }
 
 .discord__title {
@@ -78,7 +78,7 @@ useHead({
   display: inline-block;
   margin: 0 0 16px;
   padding: 5px 18px;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 18px;
   font-weight: bold;
   background-color: var(--main-color);
@@ -121,7 +121,7 @@ useHead({
   max-width: 300px;
   height: 52px;
   padding: 0 16px;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;

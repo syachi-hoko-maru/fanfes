@@ -280,7 +280,7 @@ useSeoMeta({
 .detail__inner {
   max-width: 640px;
   margin: 0 auto;
-  color: #333;
+  color: var(--font-main-color-light);
   text-align: center;
 }
 
@@ -336,7 +336,7 @@ useSeoMeta({
 }
 .detail__notice-sub {
   margin: 12px 0 0;
-  color: #666;
+  color: var(--font-main-color-superlight);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -395,7 +395,7 @@ useSeoMeta({
 }
 .shop__desc {
   margin: 0;
-  color: #555;
+  color: var(--font-main-color-superlight);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -425,7 +425,7 @@ useSeoMeta({
   display: inline-block;
   margin: 0 0 20px;
   padding-bottom: 8px;
-  color: var(--main-color-dark);
+  color: var(--font-main-color-light);
   font-size: 25px;
   font-weight: bold;
   line-height: 1.5;
@@ -447,7 +447,7 @@ useSeoMeta({
 }
 .tweet__note {
   margin: 0 0 24px;
-  color: #666;
+  color: var(--font-main-color-superlight);
   font-size: 14px;
   line-height: 1.9;
   text-align: left;
@@ -488,7 +488,7 @@ useSeoMeta({
   height: 50px;
   padding: 0 12px;
   white-space: nowrap;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 15px;
   font-weight: bold;
   text-decoration: none;
@@ -543,7 +543,7 @@ useSeoMeta({
   height: 50px;
   margin-top: 16px;
   padding: 0 24px;
-  color: #fff;
+  color: var(--font-main-color);
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
